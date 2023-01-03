@@ -1,6 +1,6 @@
 {
-	"name": "SlotGame",
-	"short_name": "SlotGame",
+	"name": "AnimSlotGame",
+	"short_name": "AnimSlotGame",
 	"description": "",
 	"start_url": "index.html",
 	"display": "fullscreen",
