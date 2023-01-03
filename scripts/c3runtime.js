@@ -3666,7 +3666,7 @@ self.C3_JsPropNameTable = [
 	{Text: 0},
 	{Sprite2: 0},
 	{Sprite3: 0},
-	{Sprite4: 0},
+	{Mask: 0},
 	{Finish0: 0},
 	{Finish1: 0},
 	{Finish2: 0},
