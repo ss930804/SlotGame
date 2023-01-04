@@ -3644,12 +3644,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Text,
 		C3.Plugins.Mouse.Cnds.OnClick,
 		C3.Plugins.System.Cnds.CompareBoolVar,
-		C3.Plugins.System.Acts.SetVar,
-		C3.Plugins.System.Exps.int,
-		C3.Plugins.System.Exps.random,
 		C3.Plugins.System.Acts.SetBoolVar,
-		C3.Plugins.System.Cnds.Compare,
-		C3.Plugins.Text.Acts.SetText,
+		C3.Plugins.System.Acts.Wait,
+		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Sprite.Acts.StartAnim,
 		C3.Plugins.System.Cnds.EveryTick,
@@ -3657,20 +3654,29 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.CompareFrame,
 		C3.Plugins.Sprite.Acts.StopAnim,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
-		C3.Plugins.System.Cnds.OnLayoutStart
+		C3.Plugins.System.Cnds.OnLayoutStart,
+		C3.Plugins.System.Acts.SetVar,
+		C3.Plugins.System.Exps.int,
+		C3.Plugins.System.Exps.random,
+		C3.Plugins.System.Cnds.Compare,
+		C3.Plugins.Text.Acts.SetText
 	];
 };
 self.C3_JsPropNameTable = [
 	{Sprite: 0},
 	{滑鼠: 0},
-	{Text: 0},
 	{Sprite2: 0},
 	{Sprite3: 0},
 	{Mask: 0},
+	{Popup: 0},
+	{Context: 0},
+	{Text: 0},
 	{Finish0: 0},
 	{Finish1: 0},
 	{Finish2: 0},
-	{IsRun: 0},
+	{GetReward: 0},
+	{IsCallRoll: 0},
+	{IsRolling: 0},
 	{IsStart: 0}
 ];
 }
@@ -3772,22 +3778,29 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
+		() => 0.7,
+		() => 1,
+		() => 0,
+		() => 4,
+		() => 2,
+		() => 8,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => f0(f1(3));
 		},
 		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0((f1(1) * 100));
+		},
+		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
-		() => "恭喜中獎",
-		() => "再接再厲",
-		() => 0,
-		() => 1,
-		() => 4,
-		() => 2,
-		() => 8
+		() => 30,
+		() => "恭喜得獎",
+		() => "再接再厲"
 ];
 
 
